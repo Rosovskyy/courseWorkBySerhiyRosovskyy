@@ -1,0 +1,106 @@
+html, body {
+  	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	font-family: Helvetica, Arial, sans-serif;
+  	overflow: hidden;
+  	background-image: url(img/forest.jpg) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: #999;
+}
+
+.wrapper {
+  	background-color: #FFFFFF;
+}
+
+.shadow {
+	position: absolute;
+    top: 25%; left: 25%;
+    width: 15rem;
+    margin-left: 14.5rem;
+}
+
+.trans {
+  	margin-top: 6.5em;
+  	transition: 1s ease-in-out;
+}
+
+.input {
+  	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+  	font-size: 1.125rem;
+  	line-height: 3rem;
+  	width: 100%; height: 3rem;
+  	color: #000;
+  	background-color: rgba(255,255,255,0.8);
+  	border: 0;
+  	border-top: 1px solid rgba(255,255,255,0.3);
+  	padding: 0 1rem;
+}
+
+.input:focus {
+	outline: none;
+}
+
+.input--top {
+  	border-radius: 10px 10px 0px 0px;
+}
+
+.input--submit {
+   	background-color: white;
+	opacity: 0.5;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-top: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input--submit:hover {
+	color: #6391bf;
+}
+
+.text {
+  	color: #EEE;
+  	text-shadow: 2px 2px 2px rgba(51, 51, 51, 0.8);
+  	text-decoration: none;
+}
+
+.text--small {
+   	opacity: 0.9;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.text--small:hover {
+	opacity: 0.5;
+}
+
+.text--centered {
+    display: block;
+    text-align: center;
+}
+
+.text--border-right {
+   	border-right: 1px solid rgba(255,255,255,0.5);
+    margin-right: 0.75rem;
+    padding-right: 0.75rem;
+ }
+
+.faded {
+	position: fixed;
+  	z-index: 1;
+  	top:0; right:0; bottom:0; left:0;
+  	background: rgba(0,0,0,0.6);
+}
+
+.modal {
+  	position: fixed;
+  	z-index:1000;
+  	top:0; right:0; bottom:0; left:0;
+
+}
