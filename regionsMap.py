@@ -6,6 +6,12 @@ gmap = gmplot.GoogleMapPlotter(49.839683, 24.029717, 13)
 
 
 def readFile(path):
+    """
+    (str) -> list
+    The function opens the file
+    and get all data from it, storing
+    it in the list
+    """
     lst = []
     f = open(path, encoding="utf-8", errors="ignore")
     for i in f:
@@ -15,20 +21,33 @@ def readFile(path):
 
 
 def putMarker(coord, color):
-    print(coord, color)
+    """
+    (tuple, str) -> Nonetype
+    Using the abstract data type and
+    google api, the function puts the marker
+    on the map
+    """
     gmap.marker(coord[0], coord[1], color=color)
 
 
 def markers():
-    utilties = readFile("helpfulData/publicUtilities.txt")
+    """
+    (None) -> Nonetype
+    Reading some data from the file,
+    the function puts the markers of
+    their address on the map
+    """
+    utilties = readFile("courseWork/helpfulData/publicUtilities.txt")
     for i in utilties:
         lat, lon = get_location(i)
         putMarker((lat, lon), 'red')
 
 
 def get_location(place):
-    """(str) -> tuple(float, float)
-    Take name of the place and return it's location
+    """
+    (str) -> tuple(float, float)
+    Take name of the place and return
+    it's location
     """
     import requests
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600"
@@ -43,16 +62,36 @@ def get_location(place):
 
 
 def main():
+    """
+    (None) -> Nonetype
+    The main function of the program,
+    which calls two another needed
+    functions
+    """
     buildPolygons()
     markers()
 
 def draw():
+    """
+    (None) -> Nonetype
+    Using the abstract data type and
+    google api, the function creates
+    the map and move it to another
+    folder
+    """
     gmap.draw("my_map.html")
     os.rename('my_map.html', 'templates/my_map.html')
 
 
 
 def buildPolygons():
+    """
+    (None) -> Nonetype
+    Using the abstract data type and
+    google api, the function creates
+    polylines on the map, which will
+    represent the regions of the city
+    """
     suhiv_lats, suhiv_lons = zip(*[
         (49.821595, 24.033411),
         (49.821883, 24.034722),
