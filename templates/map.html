@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head runat="server">
+    <title>Google Map</title>
+    <link rel="stylesheet" type="text/css" href="../static/map.css">
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+</style>
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false">
+</script>
+<script type="text/javascript">
+
+    var map;
+    var curremarker = null;
+    var req = new XMLHttpRequest();
+
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(49.82789,24.04845);
+      var myOptions = {
+          zoom:12,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+
+      map.addListener('click', function(event) {
+        addMarker(event.latLng);
+      });
+    }
+
+    function addMarker(location) {
+      if (curremarker != null) {
+        curremarker.setMap(null);
+      }
+      curremarker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+
+      document.getElementById("lat").value = location.lat().toFixed(5);
+      document.getElementById("lon").value = location.lng().toFixed(5);
+
+    }
+
+    function sendData() {
+          req.open('POST', '/map', true);
+          req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+          req.send('lat=' + document.getElementById('lat').value + '&lon=' + document.getElementById("lon").value);
+          window.location.replace("{{url_for('bye')}}")
+      }
+    
+                                                                              
+    window.onload = function () { initialize() };
+</script>
+</head>
+
+<body>
+    <form id="form1" method="get" action="{{ url_for('bye')}}">
+<div id="gmap"></div>
+
+Lat: <input type="text" id='lat' value="something">
+Lon: <input type="text" id='lon' value="else">
+
+    <button type="button" onclick="sendData()">Confirm</button>
+
+    </form>
+
+
+
+
+
+</body>
+
+</html>

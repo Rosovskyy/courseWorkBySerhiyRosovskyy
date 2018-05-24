@@ -6,16 +6,17 @@
     <link rel="stylesheet" type="text/css" href="../static/form.css">
 </head>
 <body>
+    <form id="someform" method="get" action="{{ url_for('data')}}">
     <div class="input-container">
         <label>
-            <input type="text" />
+            <input type="text" name="name"/>
             <div class="label-text">Your name</div>
         </label>
         <label>
-            <input type="text" />
+            <input type="text" name="street"/>
         <div class="label-text">Enter the street</div>
         </label>
-        <button>Map</button>
-    </div>
+        <input type="submit" class="button" formaction="{{ url_for('data') }}">
+    </div></form>
 </body>
 </html>

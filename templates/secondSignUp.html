@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/secondSignUp.css">
+</head>
+<body>
+    <form class="login-form" method='post' action="{{ url_for('reg')}}">
+        <input type="text" name="name" class="login-username" autofocus="true" required="true" placeholder="Username" />
+        <input type="email" name="email" class="login-email" autofocus="true" required="true" placeholder="Email"/>
+        <input type="password" name="password" class="login-password" required="true" placeholder="Password" />
+        <input type="submit" value="Sign up" class="login-submit"/>
+    </form>
+</body>
+</html>

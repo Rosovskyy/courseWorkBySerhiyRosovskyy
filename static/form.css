@@ -58,7 +58,7 @@ body {
          transform: translateY(-74px);
      }
 
-button {
+.button {
     background-color: #333333;
     border: 2px solid white;
     border-radius: 27px;
@@ -71,7 +71,7 @@ button {
     transition: all 200ms;
 }
 
-    button:hover, button:focus {
+    .button:hover, .button:focus {
         background-color: white;
         color: #333333;
         outline: 0;
